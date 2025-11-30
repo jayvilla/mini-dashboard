@@ -1,36 +1,219 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🌟 Mini Dashboard — Next.js 14 + Zod + RSC + Zustand + Suspense
 
-## Getting Started
+A modern, full-stack, server-first dashboard built with Next.js 14, demonstrating:
 
-First, run the development server:
+React Server Components (RSC)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+Zod for end-to-end validation
+
+Zustand for lightweight global state
+
+React Suspense for async boundaries
+
+Premium UI design (glassmorphism, animations, particles, spotlight)
+
+Client/Server component separation using best practices
+
+Type-safe forms with react-hook-form + Zod
+
+Server Actions / API Routes for secure mutations
+
+This project is designed as an interview-ready showcase of modern React architecture.
+
+🚀 Features
+🟦 Server-First Architecture (React Server Components)
+
+All data fetching happens in server components
+
+Faster initial load, smaller client bundles, zero unnecessary hydration
+
+🟧 Zod Validation (Shared Schemas)
+
+Single source of truth for form validation
+
+Zod validates on both client & server
+
+No duplicated types or validation logic
+
+🟩 Zustand Global State
+
+UI preferences stored globally:
+
+darkMode
+
+showEmail
+
+layout (grid/list)
+
+Minimal re-renders, tiny footprint
+
+🟪 React Suspense
+
+Async server components wrapped in <Suspense />
+
+Clean fallback loading states
+
+🟫 Premium UI + Animations
+
+Framer Motion animations
+
+3D tilt effects
+
+Depth orbs
+
+Spotlight gradient
+
+Particle field
+
+Glassmorphism cards
+
+Tailwind CSS styling
+
+🧱 Tech Stack
+Tech Purpose
+Next.js 14 (App Router) RSC, routing, server actions
+TypeScript Strong typing
+Zod Schema validation
+Zustand Global UI state
+Tailwind CSS Styling
+Framer Motion Animations
+React Hook Form Client-side form control
+Server Actions / API Routes Mutations
+📁 Project Structure
+app/
+page.tsx # Server Component → Landing page wrapper
+profile/
+new/
+page.tsx # Server wrapper → loads the Profile form
+dashboard/
+page.tsx # Server Component → RSC + Suspense
+UserSummary.tsx # RSC for server-side data loading
+PreferencesPanel.tsx # Client Component (Zustand)
+
+components/
+HeroLanding.tsx # Client Component (animations, spotlight, particles)
+NewProfileForm.tsx # Client Component (Zod + RHF)
+
+lib/
+validation.ts # Zod schemas + types
+store.ts # Zustand store
+db.ts # Temporary persistence (cookie or memory)
+
+🧩 Architecture Overview
+┌──────────────────────────────┐
+│ Landing Page │
+│ Client-only animations │
+└───────────────┬──────────────┘
+│
+▼
+┌────────────────────────┐
+│ Profile Form (Client) │
+│ Zod + RHF + Server Action│
+└──────────────┬─────────┘
+│
+▼
+┌────────────────────────┐
+│ Dashboard (RSC) │
+│ Suspense-wrapped async │
+└──────────────┬─────────┘
+│
+▼
+┌────────────────────┴────────────────────┐
+│ UserSummary (RSC) │
+│ Fetches server-side profile data │
+└────────────────────┬────────────────────┘
+│
+▼
+PreferencesPanel (Client, Zustand)
+
+🛠️ Getting Started
+
+Install dependencies:
+
+pnpm install
+
+Run the dev server:
+
 pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit the app:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🧪 Profile Creation Flow
 
-## Learn More
+User loads the /profile/new form
 
-To learn more about Next.js, take a look at the following resources:
+Zod validates inputs on the client
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The form POSTs to a server action (or API route)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Server validates again with the same Zod schema
 
-## Deploy on Vercel
+Profile persists via cookie or in-memory
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+User is redirected to /dashboard
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Dashboard loads profile via a server component
+
+📊 Dashboard
+
+Server-rendered user profile summary
+
+Suspense-wrapped loading boundary
+
+Client-side preferences panel using Zustand
+
+Fully styled, animated UI
+
+🔐 Server Actions (or API Routes)
+
+Profile creation is handled securely on the server using:
+
+Full Zod validation
+
+Type safety
+
+No client-side mutation logic
+
+Clean redirects
+
+🎨 UI & Design
+
+Tailwind utility classes
+
+Motion layout animations
+
+3D tilt hover cards
+
+Glass panels with backdrop blur
+
+Gradients, shadows, depth orbs
+
+Cursor-following spotlight
+
+Ambient particle effects
+
+This gives the entire project a premium, modern, production-level feel.
+
+🧰 Potential Enhancements
+
+Swap in Prisma + SQLite for persistent storage
+
+Add “Edit Profile” flow
+
+Add dark mode powered by Zustand
+
+Add more RSC examples
+
+Add skeleton loaders
+
+Add error boundaries
+
+Add full Storybook setup
+
+Deploy to Vercel
+
+📜 License
+
+MIT License — free to use, extend, or showcase.
