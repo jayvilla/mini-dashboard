@@ -1,7 +1,8 @@
+// app/dashboard/PreferencesPanel.tsx
 "use client";
 
-import { usePreferences } from "@/lib/store";
 import { motion } from "framer-motion";
+import { usePreferences } from "@/lib/store";
 
 export default function PreferencesPanel() {
   const {
@@ -20,19 +21,16 @@ export default function PreferencesPanel() {
     >
       <h2 className="text-xl font-semibold">Preferences</h2>
 
-      {/* Dark Mode */}
       <label className="flex items-center gap-3 cursor-pointer">
         <input type="checkbox" checked={darkMode} onChange={toggleDarkMode} />
         <span>Dark Mode</span>
       </label>
 
-      {/* Show Email */}
       <label className="flex items-center gap-3 cursor-pointer">
         <input type="checkbox" checked={showEmail} onChange={toggleEmail} />
         <span>Show Email</span>
       </label>
 
-      {/* Layout */}
       <div className="space-y-1">
         <p className="font-medium">Layout</p>
         <select

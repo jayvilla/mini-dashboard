@@ -1,3 +1,4 @@
+// app/dashboard/UserSummary.tsx
 import { getUser } from "@/lib/db";
 
 export default async function UserSummary() {
@@ -5,7 +6,9 @@ export default async function UserSummary() {
 
   if (!user) {
     return (
-      <p className="text-gray-300">No profile found. Please create one.</p>
+      <p className="text-gray-300">
+        No profile found. Please create one on the profile page.
+      </p>
     );
   }
 
