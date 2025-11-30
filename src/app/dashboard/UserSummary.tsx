@@ -1,18 +1,26 @@
-import { getUser } from "../../lib/db";
+import { getUser } from "@/lib/db";
 
 export default async function UserSummary() {
   const user = getUser();
 
   if (!user) {
-    return <p>No profile found. Create one first.</p>;
+    return (
+      <p className="text-gray-300">No profile found. Please create one.</p>
+    );
   }
 
   return (
-    <div className="border p-4 rounded">
-      <h2 className="text-xl font-semibold">User Summary</h2>
-      <p>Name: {user.name}</p>
-      <p>Email: {user.email}</p>
-      <p>Age: {user.age}</p>
+    <div className="space-y-3">
+      <h2 className="text-2xl font-bold">Your Profile</h2>
+      <p className="text-gray-300">
+        <span className="font-medium">Name:</span> {user.name}
+      </p>
+      <p className="text-gray-300">
+        <span className="font-medium">Email:</span> {user.email}
+      </p>
+      <p className="text-gray-300">
+        <span className="font-medium">Age:</span> {user.age}
+      </p>
     </div>
   );
 }
